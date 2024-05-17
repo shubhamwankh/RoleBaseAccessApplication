@@ -22,7 +22,6 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-
                         req.requestMatchers("/api/private").authenticated()
                                 .requestMatchers("/api/public").permitAll()
                                 .requestMatchers("/api/private-scoped").access(hasScope("update:message"))
